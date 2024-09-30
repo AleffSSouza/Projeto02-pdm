@@ -47,7 +47,7 @@ public class ResultadoIMC extends AppCompatActivity {
         textIMC.setText(imc);
 
         if (erro != null) {
-            textoPeso.setText("ERRO");
+            textoPeso.setText("Erro");
             textoAltura.setText(erro);
             textoPeso.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
             textoAltura.setTextColor(getResources().getColor(android.R.color.holo_red_dark));

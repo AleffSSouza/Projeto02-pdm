@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="#8051D3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="40dp"
     tools:context=".MainActivity">
-
 
     <ImageView
         android:id="@+id/btnVoltar"
@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="Calcule seu IMC"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -35,8 +36,8 @@
         android:id="@+id/textoOrientacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Preencha as informações:" />
-
+        android:text="Preencha as informações:"
+        android:textColor="#FFFEFE" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/TextInputLayoutPeso"
@@ -61,7 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Altura"
-            android:inputType="number|numberDecimal" />
+            android:inputType="number|numberDecimal"
+            android:textColor="#000000" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -88,6 +90,14 @@
         android:backgroundTint="@color/black"
         android:text="LIMPAR"
         android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/erroTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
 </LinearLayout>

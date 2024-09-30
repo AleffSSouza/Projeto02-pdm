@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             String peso = inputPeso.getText() != null ? inputPeso.getText().toString() : "";
             String altura = inputAltura.getText() != null ? inputAltura.getText().toString() : "";
 
+            Intent intent = null;
             try {
                 double pesoValue = Double.parseDouble(peso);
                 double alturaValue = Double.parseDouble(altura);
@@ -54,16 +55,18 @@ public class MainActivity extends AppCompatActivity {
                 String imcFormatado = df.format(imc);
 
                 // Enviando os dados para a página de resultado
-                Intent intent = new Intent(MainActivity.this, ResultadoIMC.class);
+                intent = new Intent(MainActivity.this, ResultadoIMC.class);
                 intent.putExtra("peso", peso);
                 intent.putExtra("altura", altura);
                 intent.putExtra("imc", imcFormatado);
-                intent.putExtra("nome", nome);
 
                 startActivity(intent);
 
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
+            } catch (Exception e) {
+                TextView erroTextView = findViewById(R.id.erroTextView);
+                erroTextView.setText("Entrada não valida");
+                erroTextView.setTextColor(Color.RED);
+                erroTextView.setVisibility(View.VISIBLE);
             }
         });
 
@@ -87,5 +90,7 @@ public class MainActivity extends AppCompatActivity {
         TextInputEditText inputAltura = findViewById(R.id.textInputEditAltura);
         inputPeso.setText("");
         inputAltura.setText("");
+        TextView erroTextView = findViewById(R.id.erroTextView);
+        erroTextView.setVisibility(View.GONE);
     }
 }
